@@ -49,20 +49,18 @@ livrosRouter.put("/", (req, res) => {
 })
 
 livrosRouter.delete("/", (req, res) => {
-  const id = req.body.id
-
   try {
 
     const index = livros.findIndex((e) => {
-      return e.id === id
-    })
+      return e.id === req.body.id
+    });
   
-    livros.delete(index)
+    livros.splice(index, 1);
   } catch (error) {
     res.status(400).json(error)
   }
 
-  res.status(200).json('Livro deletado');
+  res.status(200).json(livros);
 })
 
 
