@@ -49,7 +49,7 @@ livrosRouter.put("/", (req, res) => {
 })
 
 livrosRouter.delete("/", (req, res) => {
-  id = req.body.id
+  const id = req.body.id
 
   try {
 
